@@ -1,0 +1,14 @@
+{
+  "name": "belo4ya",
+  "version": "1.0.0",
+  "description": "GitHub README",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mustache": "^4.2.0"
+  }
+}
