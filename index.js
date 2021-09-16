@@ -16,7 +16,7 @@ const generateReadMe = (view) => {
 const getPassedDays = () => {
     const AD = new Date(2021, 8, 16)  // 16.09.2021 - нулевая дата
     const now = new Date()
-    return Math.floor((now - AD) / (1000 * 3600 * 24))
+    return (now - AD) / (1000 * 3600 * 24)
 }
 
 
