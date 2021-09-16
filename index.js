@@ -8,6 +8,7 @@ const generateReadMe = (view) => {
         if (err) throw err
         const rendered = Mustache.render(data.toString(), view)
         fs.writeFileSync('README.md', rendered)
+        console.log('success')
     })
 }
 
