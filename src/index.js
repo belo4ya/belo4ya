@@ -12,15 +12,21 @@ const generateReadMe = (view) => {
 }
 
 
-const getPassedDays = () => {
-    const AD = new Date(Date.UTC(2021, 8, 16))  // 16.09.2021 - нулевая дата
+const getPassedDays = (startDate) => {
     const now = new Date()
-    return Math.floor((now - AD) / (1000 * 3600 * 24))
+    return Math.floor((now - startDate) / (1000 * 3600 * 24))
 }
 
 
+const startDate = new Date(Date.UTC(2021, 8, 16))
+
 const view = {
-    days: getPassedDays()
+    startDate: startDate.toLocaleDateString('en-GB', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit'
+    }).replace(new RegExp('/', 'g'), '.'),
+    days: getPassedDays(startDate)
 }
 
 generateReadMe(view)
