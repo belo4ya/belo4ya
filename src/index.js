@@ -29,4 +29,10 @@ const view = {
     days: getPassedDays(startDate)
 }
 
-generateReadMe(view)
+// generateReadMe(view)
+
+const now = new Date();
+const start = new Date(Date.UTC(2021, 8, 16));
+
+console.log((now - start) / (1000 * 3600 * 24));
+console.log(Date.now() - Date.UTC(2021, 8, 16));
