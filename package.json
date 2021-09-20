@@ -2,8 +2,11 @@
   "name": "belo4ya",
   "version": "1.0.0",
   "description": "GitHub README",
-  "main": "src/index.js",
+  "main": "index.js",
+  "type": "module",
   "scripts": {
+    "main": "node src/index.js",
+
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "belo4ya",
