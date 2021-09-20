@@ -1,24 +1,24 @@
-const Mustache = require('mustache')
-const fs = require('fs')
+const Mustache = require('mustache');
+const fs = require('fs');
 
 
 const generateReadMe = (view) => {
-    const template = './dist/readme.mustache'
+    const template = './dist/readme.mustache';
     fs.readFile(template, (err, data) => {
-        if (err) throw err
-        const rendered = Mustache.render(data.toString(), view)
-        fs.writeFileSync('README.md', rendered)
-    })
+        if (err) throw err;
+        fs.writeFileSync('README.md', Mustache.render(data.toString(), view));
+    });
 }
 
 
 const getPassedDays = (startDate) => {
-    const now = new Date()
-    return Math.floor((now - startDate) / (1000 * 3600 * 24))
+    const now = new Date();
+    const offset = 3 * 60 * 60 * 1000;
+    return Math.floor((now - startDate + offset) / (24 * 60 * 60 * 1000));
 }
 
 
-const startDate = new Date(Date.UTC(2021, 8, 16))
+const startDate = new Date(Date.UTC(2021, 8, 16));
 
 const view = {
     startDate: startDate.toLocaleDateString('en-GB', {
@@ -27,12 +27,6 @@ const view = {
         day: '2-digit'
     }).replace(new RegExp('/', 'g'), '.'),
     days: getPassedDays(startDate)
-}
+};
 
-// generateReadMe(view)
-
-const now = new Date();
-const start = new Date(Date.UTC(2021, 8, 16));
-
-console.log((now - start) / (1000 * 3600 * 24));
-console.log(Date.now() - Date.UTC(2021, 8, 16));
+generateReadMe(view);
